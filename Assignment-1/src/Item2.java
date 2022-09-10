@@ -10,9 +10,9 @@ public class Item2 {
 		System.out.print("Enter the speed of superman in m/s: ");
 		mps = input.nextDouble();
 		
-		kpm = (mps / 1000) * 60;
+		kpm = mps * (60.0 / 1000.0);
 		
-		System.out.println("It will take superman " + (50/kpm) + " mins to travel 50km");
+		System.out.println("It will take superman " + (50.0/kpm) + " mins to travel 50km");
 	}
 
 }
