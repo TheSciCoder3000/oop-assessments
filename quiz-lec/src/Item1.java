@@ -4,11 +4,11 @@ public class Item1 {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		double even_sum = 0, odd_sum = 0, num_even = 0, num_odd = 0, num_input;
 		boolean again = true;
 		char again_res;
 		
 		while (again) {
+			double even_sum = 0, odd_sum = 0, num_even = 0, num_odd = 0, num_input;
 			System.out.print("Enter any number: ");
 			num_input = input.nextDouble();
 			
