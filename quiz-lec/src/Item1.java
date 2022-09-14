@@ -5,7 +5,7 @@ public class Item1 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		boolean again = true;
-		char again_res;
+		String again_res;
 		
 		while (again) {
 			double even_sum = 0, odd_sum = 0, num_even = 0, num_odd = 0, num_input;
@@ -31,8 +31,8 @@ public class Item1 {
 			System.out.println("The Average is: " + (even_sum/num_even));
 			System.out.print("Try Again [Yy/Nn]: ");
 			input.nextLine();
-			again_res = input.nextLine().charAt(0);
-			again = again_res == 'N' || again_res == 'n' ? false : true;
+			again_res = input.nextLine();
+			again = again_res.equalsIgnoreCase("N") ? false : true;
 		}
 	}
 
