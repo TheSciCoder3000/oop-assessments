@@ -12,10 +12,10 @@ public class Item3 {
 			
 			if (volt > 5) {
 				System.out.println("BREAKDOWN MODE");
+				System.out.println("Terminating program");
 				break;
 			} else if (volt < 5) {
 				System.out.println("CUTOFF STATE");
-				System.out.println("Terminating program");
 			}
 		} while (volt == 5);
 	}
