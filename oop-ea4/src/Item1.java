@@ -23,7 +23,7 @@ public class Item1 {
 		
 		// if element is not found then alert user
 		if (!found) {
-			System.out.println("\nNot Element Found");
+			System.out.println("\nNo Element Found");
 		}
 	}
 
