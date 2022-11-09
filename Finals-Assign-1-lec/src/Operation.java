@@ -1,9 +1,9 @@
 
 public class Operation {
-	protected int a;
-	protected int b;
-	protected int large;
-	protected int sum;
+	private int a;
+	private int b;
+	private int large;
+	private int sum;
 	
 	public void setNumber(int set_a, int set_b) {
 		a = set_a;
