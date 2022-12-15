@@ -4,12 +4,12 @@ public class Case extends NCOV{
 
 	@Override
 	public void computeRatio() {
-		int infectee = infected;
-		int pop = population;
-		while(pop % infectee == 0) {
-			
-		}
-		System.out.println(infectee + ":" + pop);
+		int gcd = GCD(infected, population);
+		ratioOfInfected = (infected / gcd) + ":" + (population / gcd);
+	}
+	
+	int GCD(int a, int b) {
+		return b == 0 ? a : GCD(b, a % b);
 	}
 	
 }

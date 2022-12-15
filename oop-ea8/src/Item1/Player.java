@@ -6,50 +6,55 @@ public class Player extends Character{
 
 	@Override
 	public String NAME() {
+		System.out.print("Enter the character's name: ");
 		return input.nextLine();
 	}
 
 	@Override
 	public String RACE() {
 		String[] races = {"Human", "Elf", "Orc", "Angel", "Demon"};
-		System.out.println("1 - Human\t4 - Angel\n2 - Elf\t5 - Demon\n3 - Orc");
+		System.out.println("1 - Human\t4 - Angel\n2 - Elf\t\t5 - Demon\n3 - Orc");
 		int race_indx = -1;
 		do {
-			System.out.print("Please enter your character's race [1 - 6]: ");
+			System.out.print("Please enter your character's race [1 - 5]: ");
 			race_indx = input.nextInt();
 			input.nextLine();
 			
-		} while (race_indx < 0 || race_indx > 6);
+		} while (race_indx < 1|| race_indx > 5);
 		
 		return races[race_indx-1];
 		
 	}
-
+	
 	@Override
 	public int[] STATS() {
 		int[] stats = new int[3];
 		String[] statList = {"HP", "DEF", "ATK"};
-		int statPts = 0;
+		int stat_total = 0;
 		boolean proceed = false;
 		System.out.println("You have a total of 10 Stat points, please distribute them among HP, DEF, ATK");
+		int stat_counter = 0;
 		
-		do {
-			for (int s = 0; s < statList.length; s++) {
-				System.out.print(statList[s] + ": ");
-				stats[s] = input.nextInt();
-				statPts += stats[s];			
+		while(!proceed) {
+			
+			if (stat_counter != 0) {
+				System.out.println("You only have " + (10-stat_total) + " left");
+			}
+			System.out.print(statList[stat_counter] + ": ");
+			stats[stat_counter] = input.nextInt();
+			stat_total += stats[stat_counter];
+			if (stat_total > 10) {
+				System.out.println("You exceeded! Try again");
+				stat_total -= stats[stat_counter];
+			} else if (stat_counter == 2) {
+				proceed = true;
+			} else {
+				stat_counter++;
 			}
 			
-			input.nextLine();
-			
-			if (statPts > 10) {
-				System.out.println("You have exceeded the given 10 stat points, please try again");
-			} else if (statPts < 10) {
-				System.out.print("Are you sure you want to proceed with \nonly " + statPts + "distributed stat points [Y/N]?");
-				proceed = (input.nextLine().equalsIgnoreCase("Y")) ? true : false;
-			}
-		} while (statPts > 10 || !proceed);
+		}
 		
+		input.nextLine();
 		return stats;
 	}
 
