@@ -47,7 +47,8 @@ public class Payment {
 			if(userpayment<totalwVAT) {
 				System.out.println("Insufficient funds. Please try again");
 			} else {
-				System.out.println("Please enter your name: ");
+				System.out.print("Please enter your name: ");
+				in.nextLine();
 				NAME = in.nextLine();
 				System.out.println("Transaction complete!");
 				loop = true;
