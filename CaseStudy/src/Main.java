@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
 import menus.ConfirmationMenu;
+import menus.EditMenu;
 import menus.MenuDest;
 import menus.MenuType;
+import menus.Payment;
 import menus.TimeMenu;
 
 public class Main {
@@ -36,22 +38,47 @@ public class Main {
 				ConfirmationMenu confirmation = new ConfirmationMenu();
 				
 				// to redirect the program based on the user's decision
+				Scanner input = new Scanner(System.in);
+				String res;
 				switch (confirmation.value) {
 					case "Edit":
-						System.out.println("Editing");
-						// TODO: add editing options here
+						System.out.println("\n+++++++++++++++++++++++++++");
+						System.out.println("\t EDITING");
+						System.out.println("+++++++++++++++++++++++++++");
+						System.out.println("Choose which among do you wish to edit:");
+						EditMenu EMenu = new EditMenu();
+						switch(EMenu.choice) {
+							case "a":
+								TMenu = new TimeMenu();
+								break;
+							case "b":
+								Destination = new MenuDest();
+								break;
+							case "c":
+								BoatType = new MenuType();
+								break;
+							default:
+								System.out.println("Canceling Edit");
+						}
 						break;
 						
 					case "Proceed to Payment":
-						System.out.println("Payment");
-						// TODO: insert payment function made by Evane here
+						Payment pay = new Payment(BoatType.price, Destination.price, TMenu.price);
+						pay.PAYMENT();
+						pay.CHECKING();
+						pay.RECEIPT();
+						// ask whether to start a new transaction with input validation
+						do {
+							System.out.print("Would you like to make a new transaction? [Y/N]: ");
+							res = input.nextLine();
+							transaction = res.equalsIgnoreCase("Y") ? true : false;
+						} while (!res.equalsIgnoreCase("Y") && !res.equalsIgnoreCase("N"));
+						
 						proceed = true;			// stop the confirmation loop
 						break;
 						
 					case "Cancel Transaction":
 						System.out.println("Canceling current transaction\n\n");
-						Scanner input = new Scanner(System.in);
-						String res;
 						
 						// ask whether to start a new transaction with input validation
 						do {
