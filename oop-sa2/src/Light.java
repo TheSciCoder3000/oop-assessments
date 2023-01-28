@@ -5,10 +5,10 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Light extends JPanel{
-	int counter = 4;
-	String moving = "WE";
-	int trafficLimit = 10;
-	int yellowThresh = 4;
+	int counter = 1;
+	String moving = "WE";			// direction of moving cars
+	int trafficLimit = 10;			// max traffic counter
+	int yellowThresh = 4;			// value before yellow stop light
 	
 	public void decreaseCounter() {
 		if (counter == 0) {

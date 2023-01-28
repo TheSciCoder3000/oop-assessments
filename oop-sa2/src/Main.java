@@ -11,18 +11,19 @@ import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
 public class Main {
+	private JFrame frame;
+	JLayeredPane layeredPane = new JLayeredPane();
 	Light light = new Light();
 	Road road = new Road();
-	JLayeredPane layeredPane = new JLayeredPane();
-	private JFrame frame;
 	JLabel Counter;
 	
+	// Moving car objects
 	CarPanel lrCarPanel = new CarPanel("/res/anemo_samachurl_low.png", 0, 140, 630, 140, 10, 0);
 	CarPanel rlCarPanel = new CarPanel("/res/anemo_samachurl_flip.png", 500, 250, 0, 250, -10, 0);
-
 	CarPanel tbCarPanel = new CarPanel("/res/anemo_samachurl_low.png", 220, -15, 220, 480, 0, 10);
 	CarPanel btCarPanel = new CarPanel("/res/anemo_samachurl_low.png", 340, 360, 340, 0, 0, -10);
 	
+	// moving pedestrians
 	PedestrianPanel tbPedPanel = new PedestrianPanel("/res/anemo_samachurl_low.png", 420, 350, 340, 40, 0, -7);
 	PedestrianPanel lrPedPanel = new PedestrianPanel("/res/anemo_samachurl_low.png", 120, 45, 400, 45, 7, 0);
 	
@@ -38,7 +39,7 @@ public class Main {
 	 */
 	public Main() {
 		initialize();
-		Timer timer = new Timer(1000, new TimerListener());
+		Timer timer = new Timer(1000, new TimerListener());		// timer for updating the traffic counter
 		timer.start();
 	}
 	
@@ -72,6 +73,7 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		// initialize window properties
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setSize(640, 480);
@@ -82,9 +84,11 @@ public class Main {
 		
 		frame.getContentPane().add(layeredPane);
 		
+		// adding lights layer
 		light.setBounds(0, 0, 640, 480);
 		layeredPane.add(light);
 
+		// adding cars and pedestrians
 		lrCarPanel.setBounds(0, 0, 640, 480);
 		rlCarPanel.setBounds(0, 0, 640, 480);
 		tbCarPanel.setBounds(0, 0, 640, 480);
@@ -98,9 +102,11 @@ public class Main {
 		layeredPane.add(tbPedPanel);
 		layeredPane.add(lrPedPanel);
 		
+		// adding roads layer
 		road.setBounds(0, 0, 640, 480);
 		layeredPane.add(road);
 		
+		// adding counter label
 		Counter = new JLabel("20");
 		Counter.setHorizontalAlignment(SwingConstants.CENTER);
 		Counter.setFont(new Font("Tahoma", Font.PLAIN, 20));

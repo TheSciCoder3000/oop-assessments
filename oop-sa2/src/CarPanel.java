@@ -10,13 +10,13 @@ import javax.swing.Timer;
 
 @SuppressWarnings("serial")
 public class CarPanel extends JPanel{
-	public static Image image;
+	public static Image image;		// image container for car
 	Timer timer = new Timer(50, new TimerListener());
-	int origX, origY;
-	int x, y;
-	int maxX, maxY;
+	int origX, origY;				// original coordinates
+	int x, y;						// current coordinates
+	int maxX, maxY;					// max coordinates before reset
 	int stepX, stepY;
-	boolean loop = true;
+	boolean loop = true;			// if animation is loop or not
 	
 	class TimerListener implements ActionListener {
 		@Override
@@ -36,6 +36,7 @@ public class CarPanel extends JPanel{
 		
 	}
 	
+	// helper function if current coordinate is within range
 	public boolean withinRange(int curr, int min, int max) {
 		// if min is less than max
 		if (min < max) {
@@ -45,6 +46,7 @@ public class CarPanel extends JPanel{
 		}
 	}
 	
+	// Constructor
 	public CarPanel (String imgPath, int corx, int cory, int mX, int mY, int sX, int sY) {
 		origX = corx;
 		origY = cory;
@@ -63,19 +65,23 @@ public class CarPanel extends JPanel{
 		}
 	}
 
+	// main paint component for drawing the image
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(image, x, y, this);
 	}
 	
+	// function for starting animation outside the class
 	public void run() {
 		timer.start();
 	}
 	
+	// function for stopping the animation outside the class
 	public void stop() {
 		timer.stop();
 	}
 	
+	// stop method overloaded
 	public void stop(boolean reset) {
 		timer.stop();
 		if (reset) {
