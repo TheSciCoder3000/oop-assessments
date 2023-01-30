@@ -24,8 +24,8 @@ public class Main {
 	CarPanel btCarPanel = new CarPanel("/res/anemo_samachurl_low.png", 340, 360, 340, 0, 0, -10);
 	
 	// moving pedestrians
-	PedestrianPanel tbPedPanel = new PedestrianPanel("/res/anemo_samachurl_low.png", 420, 350, 340, 40, 0, -7);
-	PedestrianPanel lrPedPanel = new PedestrianPanel("/res/anemo_samachurl_low.png", 120, 45, 400, 45, 7, 0);
+	PedestrianPanel tbPedPanel = new PedestrianPanel("/res/klee.png", 420, 350, 340, 40, 0, -7);
+	PedestrianPanel lrPedPanel = new PedestrianPanel("/res/yaoyao.png", 120, 45, 400, 45, 7, 0);
 	
 	/**
 	 * Launch the application.

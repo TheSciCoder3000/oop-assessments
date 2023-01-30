@@ -10,7 +10,7 @@ import javax.swing.Timer;
 
 @SuppressWarnings("serial")
 public class PedestrianPanel extends JPanel{
-	public static Image image;				// image container for pedestrians
+	public Image image;				// image container for pedestrians
 	Timer timer = new Timer(50, new TimerListener());
 	int origX, origY;						// original coordinates
 	int x, y;								// current coordinates
