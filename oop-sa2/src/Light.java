@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class Light extends JPanel{
 	int counter = 1;
 	String moving = "WE";			// direction of moving cars
-	int trafficLimit = 10;			// max traffic counter
+	int trafficLimit = 20;			// max traffic counter
 	int yellowThresh = 4;			// value before yellow stop light
 	
 	public void decreaseCounter() {

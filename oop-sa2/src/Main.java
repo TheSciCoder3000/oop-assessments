@@ -107,7 +107,7 @@ public class Main {
 		layeredPane.add(road);
 		
 		// adding counter label
-		Counter = new JLabel("20");
+		Counter = new JLabel("0");
 		Counter.setHorizontalAlignment(SwingConstants.CENTER);
 		Counter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		Counter.setOpaque(true);
